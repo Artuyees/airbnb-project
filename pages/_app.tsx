@@ -6,9 +6,8 @@ import {
   ThemeProvider,
   useMediaQuery,
 } from "@mui/material";
-import SmallNav from "../Components/Navigation/SmallBottomNav";
-import BigNav from "../Components/Navigation/BigNav";
-import { SignalCellularNullRounded } from "@mui/icons-material";
+import Navigation from "../Components/Navigation";
+import { green, purple } from "@mui/material/colors";
 
 type contextType = {
   isLoggedIn: boolean;
@@ -24,19 +23,25 @@ function MyApp({ Component, pageProps }: AppProps) {
       createTheme({
         palette: {
           mode: prefersDarkMode ? "dark" : "light",
+          primary: {
+            main: purple[500],
+          },
+          secondary: {
+            main: green[500],
+          },
         },
       }),
     [prefersDarkMode]
   );
-
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const smallScreen = useMediaQuery("(min-width: 640px)");
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <UserContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-        {smallScreen ? <BigNav /> : <SmallNav />}
+        <Navigation isSmallScreen={smallScreen} />
         <Component {...pageProps} />
       </UserContext.Provider>
     </ThemeProvider>

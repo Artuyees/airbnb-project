@@ -6,7 +6,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { Restore, Favorite, LocationOn } from "@mui/icons-material";
-const SmallBottomNav = () => {
+const MobileBottomNav = () => {
   const [value, setValue] = React.useState(0);
   return (
     <Box
@@ -31,4 +31,4 @@ const SmallBottomNav = () => {
   );
 };
 
-export default SmallBottomNav;
+export default MobileBottomNav;

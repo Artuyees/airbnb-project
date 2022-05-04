@@ -4,10 +4,10 @@ import React, { useContext } from "react";
 import { UserContext } from "../../../pages/_app";
 import Logo from "../../Logo";
 
-const BigNav = () => {
+const DesktopNav = () => {
   const checkLogin = useContext(UserContext);
   return (
-    <AppBar position="fixed" sx={{ top: 0 }}>
+    <AppBar position="sticky" sx={{ top: 0 }}>
       <Toolbar>
         <Logo />
 
@@ -45,4 +45,4 @@ const BigNav = () => {
   );
 };
 
-export default BigNav;
+export default DesktopNav;

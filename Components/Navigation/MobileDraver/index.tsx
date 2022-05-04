@@ -1,14 +1,11 @@
-import { AppBar, Avatar, Button, SwipeableDrawer } from "@mui/material";
-import { Box } from "@mui/system";
+import { Avatar, Button, Stack, SwipeableDrawer } from "@mui/material";
 import { Fragment, useContext, useState } from "react";
 import { UserContext } from "../../../pages/_app";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import Logo from "../../Logo";
 
-type Anchor = "right";
-
-const SmallDrawer = () => {
+const MobileDrawer = () => {
   const checkLogin = useContext(UserContext);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   return (
@@ -25,16 +22,7 @@ const SmallDrawer = () => {
         onOpen={() => setIsDrawerOpen(true)}
       >
         {checkLogin?.isLoggedIn ? (
-          <Box
-            p={2}
-            textAlign="center"
-            role="presentation"
-            alignItems="center"
-            display="flex"
-            flexDirection="column"
-            minWidth={200}
-            gap={2}
-          >
+          <Stack spacing={2}>
             {" "}
             <Logo />
             <Link href="/profile" passHref>
@@ -49,18 +37,9 @@ const SmallDrawer = () => {
             >
               Log Out
             </Button>
-          </Box>
+          </Stack>
         ) : (
-          <Box
-            p={2}
-            textAlign="center"
-            role="presentation"
-            alignItems="center"
-            display="flex"
-            flexDirection="column"
-            minWidth={200}
-            gap={2}
-          >
+          <Stack spacing={2} padding={4}>
             <Logo />
             <Button color="secondary" variant="contained">
               Register
@@ -74,11 +53,11 @@ const SmallDrawer = () => {
             >
               Login
             </Button>
-          </Box>
+          </Stack>
         )}
       </SwipeableDrawer>
     </Fragment>
   );
 };
 
-export default SmallDrawer;
+export default MobileDrawer;
