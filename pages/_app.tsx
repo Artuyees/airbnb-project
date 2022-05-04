@@ -7,7 +7,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import Navigation from "../Components/Navigation";
-import { green, purple } from "@mui/material/colors";
+import { pink } from "@mui/material/colors";
 
 type contextType = {
   isLoggedIn: boolean;
@@ -23,11 +23,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       createTheme({
         palette: {
           mode: prefersDarkMode ? "dark" : "light",
-          primary: {
-            main: purple[500],
-          },
           secondary: {
-            main: green[500],
+            main: "#fc3c5c",
           },
         },
       }),

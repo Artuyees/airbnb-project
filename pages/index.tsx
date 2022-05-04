@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import type { NextPage } from "next";
 import Form from "../Components/Form";
 import { Box } from "@mui/material";
+import Lorem from "../Components/Lorem";
 
 const Home: NextPage = () => {
   return (
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
       }}
     >
       <Form />
+      <Lorem />
     </Box>
   );
 };

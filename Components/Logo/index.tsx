@@ -7,12 +7,11 @@ const Logo = () => {
       sx={{
         display: "flex",
         flexDirection: "row",
-        flexGrow: 1,
         alignItems: "center",
       }}
     >
       <DiamondSharp color="secondary" />
-      <Typography variant="h6" color="secondary" component="div">
+      <Typography variant="h6" color="secondary" component="div" align="center">
         Earthbnb
       </Typography>
     </Box>
