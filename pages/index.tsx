@@ -1,42 +1,29 @@
-import React, { useContext } from "react";
+import { Fragment } from "react";
 import Button from "@mui/material/Button";
-import { ArrowForward, DiamondSharp } from "@mui/icons-material";
+import { ArrowForward } from "@mui/icons-material";
 import type { NextPage } from "next";
-import {
-  AppBar,
-  Container,
-  createTheme,
-  CssBaseline,
-  ThemeProvider,
-  Toolbar,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Container, CssBaseline, useMediaQuery } from "@mui/material";
 import { useRouter } from "next/router";
 import Lorem from "../Components/Lorem";
-import BottomNav from "../Components/SmallNav";
-import BigNav from "../Components/BigNav";
-import SmallNav from "../Components/SmallNav";
+import BigNav from "../Components/Navigation/BigNav";
+import SmallNav from "../Components/Navigation/SmallNav";
+import SmallBottomNav from "../Components/Navigation/SmallBottomNav";
+import SmallDrawer from "../Components/Navigation/SmallDraver";
 
 const Home: NextPage = () => {
   const router = useRouter();
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const smallScreen = useMediaQuery("(min-width: 640px)");
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: prefersDarkMode ? "dark" : "light",
-        },
-      }),
-    [prefersDarkMode]
-  );
 
   return (
-    <ThemeProvider theme={theme}>
-      {smallScreen ? <BigNav /> : <SmallNav />}
+    <Fragment>
+      {smallScreen ? (
+        <BigNav />
+      ) : (
+        <Fragment>
+          <SmallNav />
+        </Fragment>
+      )}
       <Container maxWidth="md">
-        <CssBaseline />
         <Button
           endIcon={<ArrowForward />}
           color="primary"
@@ -48,8 +35,7 @@ const Home: NextPage = () => {
         </Button>
         <Lorem />
       </Container>
-      <BottomNav />
-    </ThemeProvider>
+    </Fragment>
   );
 };
 
