@@ -6,22 +6,14 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { Restore, Favorite, LocationOn } from "@mui/icons-material";
-const SmallNav = () => {
+const SmallBottomNav = () => {
   const [value, setValue] = React.useState(0);
-
-  const matches = useMediaQuery("(min-width:600px)");
-  console.log(matches);
-
-  if (matches) {
-    return <></>;
-  }
   return (
     <Box
       sx={{
         width: "100%",
-        justifyContent: "center",
         position: "fixed",
-        top: 0,
+        bottom: 0,
       }}
     >
       <BottomNavigation
@@ -39,4 +31,4 @@ const SmallNav = () => {
   );
 };
 
-export default SmallNav;
+export default SmallBottomNav;
