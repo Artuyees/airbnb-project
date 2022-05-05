@@ -44,7 +44,7 @@ const DesktopNav = () => {
                 "&:hover": {
                   color: "secondary.contrastText",
                   borderColor: "secondary.contrastText",
-                  backgroundColor: "secondary.main",
+                  backgroundColor: "primary.main.",
                 },
               }}
               variant="outlined"
