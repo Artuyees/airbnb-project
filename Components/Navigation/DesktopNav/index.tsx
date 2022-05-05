@@ -26,7 +26,6 @@ const DesktopNav = () => {
           <Toolbar sx={{ gap: 2 }}>
             <Avatar>JD</Avatar>
             <Button
-              color="secondary"
               variant="contained"
               onClick={() => {
                 checkLogin?.setIsLoggedIn(false);
@@ -37,11 +36,17 @@ const DesktopNav = () => {
           </Toolbar>
         ) : (
           <Toolbar sx={{ gap: 2 }}>
-            <Button variant="contained" color="secondary">
-              Register
-            </Button>
+            <Button variant="contained">Register</Button>
             <Button
-              color="secondary"
+              sx={{
+                color: "secondary.contrastText",
+                borderColor: "secondary.contrastText",
+                "&:hover": {
+                  color: "secondary.contrastText",
+                  borderColor: "secondary.contrastText",
+                  backgroundColor: "secondary.main",
+                },
+              }}
               variant="outlined"
               onClick={() => {
                 checkLogin?.setIsLoggedIn(true);

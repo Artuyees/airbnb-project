@@ -10,11 +10,15 @@ const MobileDrawer = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   return (
     <Fragment>
-      <Button color="secondary" onClick={() => setIsDrawerOpen(true)}>
-        <MenuIcon color="inherit" />
+      <Button
+        sx={{
+          color: "secondary.contrastText",
+        }}
+        onClick={() => setIsDrawerOpen(true)}
+      >
+        <MenuIcon />
       </Button>
       <SwipeableDrawer
-        color="secondary"
         sx={{ position: "absolute" }}
         anchor={"left"}
         open={isDrawerOpen}
@@ -29,7 +33,6 @@ const MobileDrawer = () => {
               <Avatar>JD</Avatar>
             </Link>
             <Button
-              color="secondary"
               variant="contained"
               onClick={() => {
                 checkLogin?.setIsLoggedIn(false);
@@ -41,11 +44,8 @@ const MobileDrawer = () => {
         ) : (
           <Stack spacing={2} padding={4}>
             <Logo />
-            <Button color="secondary" variant="contained">
-              Register
-            </Button>
+            <Button variant="contained">Register</Button>
             <Button
-              color="secondary"
               variant="outlined"
               onClick={() => {
                 checkLogin?.setIsLoggedIn(true);

@@ -7,7 +7,9 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import Navigation from "../Components/Navigation";
-import { pink } from "@mui/material/colors";
+
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { LocalizationProvider } from "@mui/x-date-pickers";
 
 type contextType = {
   isLoggedIn: boolean;
@@ -23,8 +25,13 @@ function MyApp({ Component, pageProps }: AppProps) {
       createTheme({
         palette: {
           mode: prefersDarkMode ? "dark" : "light",
-          secondary: {
+          primary: {
             main: "#fc3c5c",
+            contrastText: "#fff",
+          },
+          secondary: {
+            main: "#f5f5f5",
+            contrastText: prefersDarkMode ? "#fc3c5c" : "#fff",
           },
         },
       }),
@@ -35,13 +42,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   const smallScreen = useMediaQuery("(min-width: 640px)");
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <UserContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-        <Navigation isSmallScreen={smallScreen} />
-        <Component {...pageProps} />
-      </UserContext.Provider>
-    </ThemeProvider>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <UserContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+          <Navigation isSmallScreen={smallScreen} />
+          <Component {...pageProps} />
+        </UserContext.Provider>
+      </ThemeProvider>
+    </LocalizationProvider>
   );
 }
 
