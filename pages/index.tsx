@@ -1,11 +1,17 @@
-import { Fragment } from "react";
-
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Form from "../Components/Form";
 import { Box } from "@mui/material";
-import Lorem from "../Components/Lorem";
+import Cards from "../Components/Presentation/Cards";
+import { Hotel, hotels } from "../data/hotels";
 
-const Home: NextPage = () => {
+type IndexProps = {
+  cities?: string[];
+  data?: Hotel[];
+};
+
+const Home: NextPage = (props: IndexProps) => {
+  const { data } = props;
+
   return (
     <Box
       sx={{
@@ -15,9 +21,18 @@ const Home: NextPage = () => {
       }}
     >
       <Form />
-      <Lorem />
+      <Cards data={data} />
     </Box>
   );
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = () => {
+  const data = hotels;
+  return {
+    props: {
+      data,
+    },
+  };
+};
