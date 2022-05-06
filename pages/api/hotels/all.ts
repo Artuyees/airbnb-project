@@ -10,6 +10,5 @@ export default function handler(
 ) {
   if (req.method === "GET") {
     res.status(200).json(hotels);
-    console.log(hotels);
   }
 }
