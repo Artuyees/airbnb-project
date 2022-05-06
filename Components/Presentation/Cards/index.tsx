@@ -10,21 +10,22 @@ type Props = {
 
 const Cards = (props: Props) => {
   const { data, title } = props;
-  const cards = data?.splice(0, 4);
+  const cards = data?.slice(0, 4);
   return (
     <Grid container marginY={1} gap={1}>
       <Grid item xs={12} textAlign="center">
-        <Typography variant="h3">{title}</Typography>
+        <Typography variant="h4">{title}</Typography>
       </Grid>
       <Grid container columns={16} gap={1} justifyContent="center">
         {cards?.map((item, idx) => {
-          const href = `/Photo${idx}`;
+          const href = `/hotels/${item.id}`;
           return (
             <Grid key={idx} justifyContent="center" item md={3} xs={12}>
               <CardWithData
                 href={href}
-                name={item.name}
-                image={`/${item.image}${idx + 1}.jpg`}
+                name={item.city}
+                image={`/Cards/Photo${idx + 1}.jpg`}
+                index={idx}
               ></CardWithData>
             </Grid>
           );

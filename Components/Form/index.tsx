@@ -7,20 +7,23 @@ import {
   Typography,
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
-import React, { useEffect } from "react";
+import React from "react";
+import { hotels, Hotel } from "../../data/hotels";
 
-const Form = () => {
+type Cities = string[];
+
+type Props = {
+  data?: Hotel[];
+};
+
+const Form = (props: Props) => {
+  /* map through cities in hotels */
+  const cities: Cities = hotels.map((hotel) => hotel.city);
+  let uniqueCities = [...new Set(cities)];
   const [value, setValue] = React.useState<Date | null>(new Date());
   const [secondValue, setSecondValue] = React.useState<Date | null>(new Date());
-  const [cities, setCities] = React.useState<any>([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await fetch("/api/cities");
-      const data = await result.json();
-      setCities(data);
-    };
-    fetchData().catch(console.error);
-  }, []);
+  const [selectedCity, setSelectedCity] = React.useState<any>();
+
   return (
     <Paper
       sx={{
@@ -46,7 +49,11 @@ const Form = () => {
           <Autocomplete
             disablePortal
             id="combo-box-demo"
-            options={cities}
+            value={selectedCity}
+            onChange={(event, newValue) => {
+              setSelectedCity(newValue);
+            }}
+            options={uniqueCities}
             sx={{ minWidth: 300 }}
             renderInput={(params) => (
               <TextField {...params} label="Where do you want to travel?" />

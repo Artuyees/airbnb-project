@@ -3,6 +3,7 @@ import Form from "../Components/Form";
 import { Box } from "@mui/material";
 import Cards from "../Components/Presentation/Cards";
 import { Hotel, hotels } from "../data/hotels";
+import Presentation from "../Components/Presentation";
 
 type IndexProps = {
   data?: Hotel[];
@@ -19,8 +20,8 @@ const Home: NextPage = (props: IndexProps) => {
         alignItems: "center",
       }}
     >
-      <Form />
-      <Cards data={data} title="Ideas for your next trip" />
+      <Form data={data} />
+      <Presentation data={data} />
     </Box>
   );
 };
@@ -33,6 +34,5 @@ export const getStaticProps: GetStaticProps = () => {
     props: {
       data,
     },
-    revalidate: 3600,
   };
 };

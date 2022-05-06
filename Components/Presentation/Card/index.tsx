@@ -11,25 +11,36 @@ import Link from "next/link";
 import React from "react";
 
 export type CardProps = {
-  image?: string;
-  data?: string;
+  image: string;
   name?: string;
-  href?: string;
+  href: string;
+  index?: number;
 };
 
 const CardWithData = (props: CardProps) => {
-  const { image, data, name, href } = props;
-
+  const { image, name, href } = props;
   return (
     <Link href={href ? href : "/"} passHref>
-      <Card sx={{ minHeight: 300 }}>
+      <Card
+        sx={{
+          minHeight: 300,
+          backgroundColor: "primary.main",
+          color: "primary.contrastText",
+        }}
+        elevation={2}
+      >
         <CardActionArea>
           {image && (
             <CardMedia sx={{ width: "100%", height: "300px" }}>
               <div
                 style={{ position: "relative", width: "100%", height: "100%" }}
               >
-                <Image alt={"xd"} src={image} layout="fill" objectFit="cover" />
+                <Image
+                  alt={image}
+                  src={image}
+                  layout="fill"
+                  objectFit="cover"
+                />
               </div>
             </CardMedia>
           )}

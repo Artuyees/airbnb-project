@@ -15,8 +15,8 @@ export const hotels: Hotel[] = [
   {
     id: 1,
     name: "Hotel A",
-    city: "New York",
-    country: "USA",
+    city: "Warsaw",
+    country: "Poland",
     rating: 5,
     stars: 5,
     price: 100,
@@ -28,8 +28,8 @@ export const hotels: Hotel[] = [
   {
     id: 2,
     name: "Hotel B",
-    city: "New York",
-    country: "USA",
+    city: "London",
+    country: "United Kingdom",
     rating: 5,
     stars: 3,
     price: 80,
@@ -52,8 +52,8 @@ export const hotels: Hotel[] = [
   {
     id: 4,
     name: "Hotel D",
-    city: "Tokyo",
-    country: "Japan",
+    city: "Cracow",
+    country: "Poland",
     rating: 4,
     stars: 2,
     price: 50,
