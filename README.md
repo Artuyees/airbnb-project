@@ -4,6 +4,7 @@ This is a Airbnb clone made with Next.js and material Ui. features:
 - Api routes
 - Form made to find rooms easier
 - Fully responsive design. Mobile support
+- staticProps
 
 ## Getting Started
 
@@ -16,5 +17,13 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+To build app run:
+
+```bash
+npm run build
+#or
+yarn build
+```
 
 # Images come from unsplash.com
