@@ -1,13 +1,15 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { cities } from "../../../data/cities";
+import { Hotel, hotels } from "../../../data/hotels";
 
-export type Data = string[];
+export type Data = Hotel[] | Hotel;
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json(cities);
-  console.log(cities);
+  if (req.method === "GET") {
+    res.status(200).json(hotels);
+    console.log(hotels);
+  }
 }
