@@ -12,7 +12,6 @@ export default function handler(
     const { country } = hotel;
     return country === filter;
   });
-  console.log(hotels, filter, filteredHotels);
 
   res.status(200).json(filteredHotels);
 }

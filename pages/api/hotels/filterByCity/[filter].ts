@@ -12,7 +12,6 @@ export default function handler(
     const { city } = hotel;
     return city === filter;
   });
-  console.log(hotels, filter, filteredHotels);
 
   res.status(200).json(filteredHotels);
 }

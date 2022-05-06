@@ -5,7 +5,6 @@ import Cards from "../Components/Presentation/Cards";
 import { Hotel, hotels } from "../data/hotels";
 
 type IndexProps = {
-  cities?: string[];
   data?: Hotel[];
 };
 
@@ -21,7 +20,7 @@ const Home: NextPage = (props: IndexProps) => {
       }}
     >
       <Form />
-      <Cards data={data} />
+      <Cards data={data} title="Ideas for your next trip" />
     </Box>
   );
 };
@@ -34,5 +33,6 @@ export const getStaticProps: GetStaticProps = () => {
     props: {
       data,
     },
+    revalidate: 3600,
   };
 };

@@ -63,7 +63,6 @@ const Form = () => {
             value={value}
             onChange={(newValue) => {
               setValue(newValue);
-              console.log(newValue);
             }}
             renderInput={(params) => <TextField {...params} />}
           />
@@ -117,7 +116,7 @@ const Form = () => {
           email: HTMLInputElement;
           name: HTMLInputElement;
         };
-        console.log("dzialas", target.name.value, target.email.value);
+        console.log("dziala", target.name.value, target.email.value);
       }}
     >
       <label htmlFor="name">Name</label>
