@@ -49,6 +49,7 @@ const Form = (props: Props) => {
           <Autocomplete
             disablePortal
             id="combo-box-demo"
+            value={query?.query.city}
             options={uniqueCities}
             onChange={(event, newValue) => {
               query?.setQuery({ ...query.query, city: newValue });

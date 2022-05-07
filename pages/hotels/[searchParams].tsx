@@ -1,5 +1,7 @@
+import { Container } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
+import List from "../../Components/List";
 import { Hotel, hotels } from "../../data/hotels";
 
 const SearchPage = () => {
@@ -45,16 +47,12 @@ const SearchPage = () => {
   }, [query]);
   /*  */
   return (
-    <div>
-      <h1>SearchPage</h1>
-      <ul>
-        {filteredHotels.map((hotel) => (
-          <li key={hotel.id}>
-            <a href={`/hotel/${hotel.id}`}>{hotel.city}</a>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <List
+      data={filteredHotels}
+      result={
+        typeof query.searchParams === "string" ? query.searchParams : undefined
+      }
+    />
   );
 };
 
