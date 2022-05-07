@@ -16,6 +16,21 @@ type contextType = {
   setIsLoggedIn: (isLoggedIn: boolean) => void;
 };
 
+type hotelQueryType = {
+  city: string | null;
+  dateArrival: Date | null | undefined;
+  dateDeparture: Date | null;
+  children: number;
+  adults: number;
+};
+
+type queryType = {
+  query: hotelQueryType;
+  setQuery: (query: hotelQueryType) => void;
+};
+
+export const QueryContext = createContext<null | queryType>(null);
+
 export const UserContext = createContext<null | contextType>(null);
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -38,7 +53,14 @@ function MyApp({ Component, pageProps }: AppProps) {
     [prefersDarkMode]
   );
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const [query, setQuery] = useState<hotelQueryType>({
+    city: "",
+    dateArrival: new Date(),
+    dateDeparture: new Date(),
+    children: 0,
+    adults: 2,
+  });
+  console.log(query);
   const smallScreen = useMediaQuery("(min-width: 640px)");
 
   return (
@@ -47,7 +69,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <CssBaseline />
         <UserContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
           <Navigation isSmallScreen={smallScreen} />
-          <Component {...pageProps} />
+          <QueryContext.Provider value={{ query, setQuery }}>
+            <Component {...pageProps} />
+          </QueryContext.Provider>
         </UserContext.Provider>
       </ThemeProvider>
     </LocalizationProvider>

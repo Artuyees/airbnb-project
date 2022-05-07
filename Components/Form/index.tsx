@@ -7,8 +7,10 @@ import {
   Typography,
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useContext } from "react";
 import { hotels, Hotel } from "../../data/hotels";
+import { QueryContext } from "../../pages/_app";
 
 type Cities = string[];
 
@@ -16,25 +18,12 @@ type Props = {
   data?: Hotel[];
 };
 
-type Data = {
-  city: string | null;
-  dateArrival: Date | null;
-  dateDeparture: Date | null;
-  children: number;
-  adults: number;
-};
-
 const Form = (props: Props) => {
+  const router = useRouter();
+  const query = useContext(QueryContext);
   /* map through cities in hotels */
   const cities: Cities = hotels.map((hotel) => hotel.city);
   let uniqueCities = [...new Set(cities)];
-  const [formData, setFormData] = React.useState<Data>({
-    city: "",
-    dateArrival: new Date(),
-    dateDeparture: new Date(),
-    children: 0,
-    adults: 2,
-  });
   return (
     <Paper
       sx={{
@@ -62,7 +51,7 @@ const Form = (props: Props) => {
             id="combo-box-demo"
             options={uniqueCities}
             onChange={(event, newValue) => {
-              setFormData({ ...formData, city: newValue });
+              query?.setQuery({ ...query.query, city: newValue });
             }}
             sx={{ minWidth: 300 }}
             renderInput={(params) => (
@@ -76,9 +65,9 @@ const Form = (props: Props) => {
             label="Date of arrival"
             openTo="day"
             views={["day", "month", "year"]}
-            value={formData.dateArrival}
+            value={query?.query.dateArrival}
             onChange={(newValue) => {
-              setFormData({ ...formData, dateArrival: newValue });
+              query?.setQuery({ ...query.query, dateArrival: newValue });
             }}
             renderInput={(params) => <TextField {...params} />}
           />
@@ -88,11 +77,14 @@ const Form = (props: Props) => {
             disablePast
             label="Data of departure"
             openTo="day"
-            minDate={formData.dateArrival}
+            minDate={query?.query.dateArrival}
             views={["day", "month", "year"]}
-            value={formData.dateDeparture}
+            value={query?.query.dateDeparture}
             onChange={(newSecondValue) => {
-              setFormData({ ...formData, dateDeparture: newSecondValue });
+              query?.setQuery({
+                ...query.query,
+                dateDeparture: newSecondValue,
+              });
             }}
             renderInput={(params) => <TextField {...params} />}
           />
@@ -103,9 +95,12 @@ const Form = (props: Props) => {
             type="number"
             label="How many adults?"
             onChange={(event) => {
-              setFormData({ ...formData, adults: Number(event.target.value) });
+              query?.setQuery({
+                ...query.query,
+                adults: Number(event.target.value),
+              });
             }}
-            value={formData.adults}
+            value={query?.query.adults}
             sx={{ minWidth: 258 }}
             variant="outlined"
           />
@@ -115,10 +110,10 @@ const Form = (props: Props) => {
             id="outlined-basic"
             type="number"
             label="How many children?"
-            value={formData.children}
+            value={query?.query.children}
             onChange={(event) => {
-              setFormData({
-                ...formData,
+              query?.setQuery({
+                ...query.query,
                 children: Number(event.target.value),
               });
             }}
@@ -130,6 +125,13 @@ const Form = (props: Props) => {
           <Button
             sx={{ paddingX: 4, paddingY: 1, fontSize: "1rem" }}
             variant="contained"
+            onClick={() => {
+              router.push(
+                query?.query.city
+                  ? `hotels/city?city=${query?.query.city}`
+                  : `hotels`
+              );
+            }}
           >
             Search
           </Button>

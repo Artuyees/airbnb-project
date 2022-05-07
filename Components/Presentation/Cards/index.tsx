@@ -24,7 +24,7 @@ const Cards = (props: Props) => {
         justifyContent="center"
       >
         {cards?.map((item, idx) => {
-          const href = `/hotels/${item.id}`;
+          const href = `hotels/city?city=${item.city}`;
           return (
             <Grid key={idx} justifyContent="center" item md={3} xs={12}>
               <CardWithData
