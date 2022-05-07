@@ -16,14 +16,25 @@ type Props = {
   data?: Hotel[];
 };
 
+type Data = {
+  city: string | null;
+  dateArrival: Date | null;
+  dateDeparture: Date | null;
+  children: number;
+  adults: number;
+};
+
 const Form = (props: Props) => {
   /* map through cities in hotels */
   const cities: Cities = hotels.map((hotel) => hotel.city);
   let uniqueCities = [...new Set(cities)];
-  const [value, setValue] = React.useState<Date | null>(new Date());
-  const [secondValue, setSecondValue] = React.useState<Date | null>(new Date());
-  const [selectedCity, setSelectedCity] = React.useState<any>();
-
+  const [formData, setFormData] = React.useState<Data>({
+    city: "",
+    dateArrival: new Date(),
+    dateDeparture: new Date(),
+    children: 0,
+    adults: 2,
+  });
   return (
     <Paper
       sx={{
@@ -49,11 +60,10 @@ const Form = (props: Props) => {
           <Autocomplete
             disablePortal
             id="combo-box-demo"
-            value={selectedCity}
-            onChange={(event, newValue) => {
-              setSelectedCity(newValue);
-            }}
             options={uniqueCities}
+            onChange={(event, newValue) => {
+              setFormData({ ...formData, city: newValue });
+            }}
             sx={{ minWidth: 300 }}
             renderInput={(params) => (
               <TextField {...params} label="Where do you want to travel?" />
@@ -65,11 +75,10 @@ const Form = (props: Props) => {
             disablePast
             label="Date of arrival"
             openTo="day"
-            maxDate={secondValue}
             views={["day", "month", "year"]}
-            value={value}
+            value={formData.dateArrival}
             onChange={(newValue) => {
-              setValue(newValue);
+              setFormData({ ...formData, dateArrival: newValue });
             }}
             renderInput={(params) => <TextField {...params} />}
           />
@@ -79,10 +88,11 @@ const Form = (props: Props) => {
             disablePast
             label="Data of departure"
             openTo="day"
+            minDate={formData.dateArrival}
             views={["day", "month", "year"]}
-            value={secondValue}
+            value={formData.dateDeparture}
             onChange={(newSecondValue) => {
-              setSecondValue(newSecondValue);
+              setFormData({ ...formData, dateDeparture: newSecondValue });
             }}
             renderInput={(params) => <TextField {...params} />}
           />
@@ -90,8 +100,12 @@ const Form = (props: Props) => {
         <Grid item xs={2} md={1} textAlign="center">
           <TextField
             id="outlined-basic"
+            type="number"
             label="How many adults?"
-            defaultValue={2}
+            onChange={(event) => {
+              setFormData({ ...formData, adults: Number(event.target.value) });
+            }}
+            value={formData.adults}
             sx={{ minWidth: 258 }}
             variant="outlined"
           />
@@ -99,8 +113,15 @@ const Form = (props: Props) => {
         <Grid item xs={2} md={1} textAlign="center">
           <TextField
             id="outlined-basic"
+            type="number"
             label="How many children?"
-            defaultValue={0}
+            value={formData.children}
+            onChange={(event) => {
+              setFormData({
+                ...formData,
+                children: Number(event.target.value),
+              });
+            }}
             sx={{ minWidth: 258 }}
             variant="outlined"
           />

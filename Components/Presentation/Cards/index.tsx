@@ -30,7 +30,7 @@ const Cards = (props: Props) => {
               <CardWithData
                 href={href}
                 name={item.city}
-                image={idx + 1}
+                image={item.image}
                 index={idx}
               ></CardWithData>
             </Grid>

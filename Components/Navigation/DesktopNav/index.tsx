@@ -7,6 +7,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
+import Link from "next/link";
 import React, { useContext } from "react";
 import { UserContext } from "../../../pages/_app";
 import Logo from "../../Logo";
@@ -24,7 +25,19 @@ const DesktopNav = () => {
 
         {checkLogin?.isLoggedIn ? (
           <Toolbar sx={{ gap: 2 }}>
-            <Avatar>JD</Avatar>
+            <Link href="profile" passHref>
+              <Button
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 1,
+                }}
+              >
+                {/* Button */}
+                <Avatar>JD</Avatar>
+              </Button>
+            </Link>
             <Button
               variant="contained"
               onClick={() => {

@@ -37,11 +37,11 @@ const CardWithData = (props: CardProps) => {
               >
                 <Image
                   alt={name}
-                  src={`/Cards/Photo${image}.jpg`}
+                  src={`/Cards/${image}`}
                   layout="fill"
                   quality="50"
                   placeholder="blur"
-                  blurDataURL={`/Cards/BlurPhoto${image}.jpg`}
+                  blurDataURL={`/Cards/Blur/${image}`}
                   objectFit="cover"
                 />
               </div>
