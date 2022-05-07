@@ -92,6 +92,7 @@ const Form = (props: Props) => {
             id="outlined-basic"
             label="How many adults?"
             defaultValue={2}
+            sx={{ minWidth: 258 }}
             variant="outlined"
           />
         </Grid>
@@ -100,6 +101,7 @@ const Form = (props: Props) => {
             id="outlined-basic"
             label="How many children?"
             defaultValue={0}
+            sx={{ minWidth: 258 }}
             variant="outlined"
           />
         </Grid>

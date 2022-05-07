@@ -11,7 +11,7 @@ import Link from "next/link";
 import React from "react";
 
 export type CardProps = {
-  image: string;
+  image: string | number;
   name?: string;
   href: string;
   index?: number;
@@ -36,9 +36,12 @@ const CardWithData = (props: CardProps) => {
                 style={{ position: "relative", width: "100%", height: "100%" }}
               >
                 <Image
-                  alt={image}
-                  src={image}
+                  alt={name}
+                  src={`/Cards/Photo${image}.jpg`}
                   layout="fill"
+                  quality="50"
+                  placeholder="blur"
+                  blurDataURL={`/Cards/BlurPhoto${image}.jpg`}
                   objectFit="cover"
                 />
               </div>

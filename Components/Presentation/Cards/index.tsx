@@ -16,7 +16,13 @@ const Cards = (props: Props) => {
       <Grid item xs={12} textAlign="center">
         <Typography variant="h4">{title}</Typography>
       </Grid>
-      <Grid container columns={16} gap={1} justifyContent="center">
+      <Grid
+        container
+        columns={16}
+        gap={1}
+        marginTop={2}
+        justifyContent="center"
+      >
         {cards?.map((item, idx) => {
           const href = `/hotels/${item.id}`;
           return (
@@ -24,7 +30,7 @@ const Cards = (props: Props) => {
               <CardWithData
                 href={href}
                 name={item.city}
-                image={`/Cards/Photo${idx + 1}.jpg`}
+                image={idx + 1}
                 index={idx}
               ></CardWithData>
             </Grid>

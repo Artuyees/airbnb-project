@@ -28,7 +28,7 @@ const Home: NextPage = (props: IndexProps) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = () => {
+export const getStaticProps: GetStaticProps = async () => {
   const data = hotels;
   return {
     props: {
