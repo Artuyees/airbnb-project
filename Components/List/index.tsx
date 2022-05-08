@@ -13,7 +13,14 @@ const List = (props: Props) => {
 
   return (
     <Container maxWidth="lg">
-      <Paper sx={{ margin: 2, padding: 1, textAlign: "center" }}>
+      <Paper
+        sx={{
+          margin: 2,
+          padding: 1,
+          color: "primary.contrastText",
+          textAlign: "center",
+        }}
+      >
         <Typography variant="h5">See what we found for you:</Typography>
       </Paper>
       {data?.map((item, idx) => {

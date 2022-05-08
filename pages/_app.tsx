@@ -54,13 +54,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [query, setQuery] = useState<hotelQueryType>({
-    city: "",
+    city: "Warsaw",
     dateArrival: new Date(),
     dateDeparture: new Date(),
     children: 0,
     adults: 2,
   });
-  console.log(query);
   const smallScreen = useMediaQuery("(min-width: 640px)");
 
   return (

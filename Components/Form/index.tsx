@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
 import { useRouter } from "next/router";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { hotels, Hotel } from "../../data/hotels";
 import { QueryContext } from "../../pages/_app";
 
@@ -48,7 +48,7 @@ const Form = (props: Props) => {
         <Grid item xs={2} md={2} textAlign="center">
           <Autocomplete
             disablePortal
-            id="combo-box-demo"
+            id="combo-box"
             value={query?.query.city}
             options={uniqueCities}
             onChange={(event, newValue) => {
@@ -140,30 +140,6 @@ const Form = (props: Props) => {
       </Grid>
     </Paper>
   );
-
-  {
-    /* <form
-      onSubmit={async (event: React.SyntheticEvent) => {
-        event.preventDefault();
-        const target = event.target as HTMLFormElement & {
-          email: HTMLInputElement;
-          name: HTMLInputElement;
-        };
-        console.log("dziala", target.name.value, target.email.value);
-      }}
-    >
-      <label htmlFor="name">Name</label>
-      <input id="name" name="name" type="text" autoComplete="name" required />
-      <input
-        id="email"
-        name="email"
-        type="text"
-        autoComplete="email"
-        required
-      />
-      <button type="submit">Register</button>
-    </form> */
-  }
 };
 
 export default Form;
