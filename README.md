@@ -26,4 +26,4 @@ npm run build
 yarn build
 ```
 
-# Images come from unsplash.com
+All images come from unsplash.com
