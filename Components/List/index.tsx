@@ -4,7 +4,8 @@ import { Hotel } from "../../data/hotels";
 import ListItem from "./SingleItem";
 
 type Props = {
-  data?: Hotel[];
+  data?: Hotel[] | undefined;
+  result?: string;
 };
 
 const List = (props: Props) => {
