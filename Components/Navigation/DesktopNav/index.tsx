@@ -27,6 +27,7 @@ const DesktopNav = () => {
           <Toolbar sx={{ gap: 2 }}>
             <Link href="profile" passHref>
               <Button
+                aria-label="account of current user"
                 sx={{
                   display: "flex",
                   flexDirection: "column",
@@ -39,6 +40,7 @@ const DesktopNav = () => {
               </Button>
             </Link>
             <Button
+              aria-label="log out"
               variant="contained"
               onClick={() => {
                 checkLogin?.setIsLoggedIn(false);
@@ -49,8 +51,11 @@ const DesktopNav = () => {
           </Toolbar>
         ) : (
           <Toolbar sx={{ gap: 2 }}>
-            <Button variant="contained">Register</Button>
+            <Button aria-label="Register" variant="contained">
+              Register
+            </Button>
             <Button
+              aria-label="Log in"
               sx={{
                 color: "secondary.contrastText",
                 borderColor: "secondary.contrastText",
