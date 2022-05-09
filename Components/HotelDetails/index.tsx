@@ -106,7 +106,7 @@ const HotelDetails = (props: Props) => {
           <Grid item xs={12} md={12} padding={2}>
             <Divider orientation="horizontal"></Divider>
           </Grid>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={8} marginBottom={4}>
             {hotel && <HotelInfo hotel={hotel} />}
           </Grid>
 

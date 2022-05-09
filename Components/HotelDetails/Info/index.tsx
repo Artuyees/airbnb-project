@@ -1,5 +1,5 @@
 import { Divider, Rating, Stack } from "@mui/material";
-import React from "react";
+import React, { Fragment } from "react";
 import { Hotel } from "../../../data/hotels";
 import Description from "./Description";
 import Host from "./Host";
@@ -25,6 +25,7 @@ const HotelInfo = (props: Props) => {
         hostName={hotel.host}
         rating={`${hotel.rating}/5 (${hotel.ratingCount} reviews)`}
       />
+      <Fragment />
     </Stack>
   );
 };
