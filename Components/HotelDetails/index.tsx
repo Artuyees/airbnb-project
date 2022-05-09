@@ -68,6 +68,7 @@ const HotelDetails = (props: Props) => {
                   src={`/Hotels/hotel${hotel.id}/${hotel.images[image]}`}
                   layout="fill"
                   objectFit="cover"
+                  quality={50}
                 ></Image>
               )}
             </Container>

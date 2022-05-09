@@ -34,6 +34,7 @@ const ListItem = (props: Props) => {
               alt={data.images[0]}
               src={`/Hotels/hotel${data.id}/${data.images[0]}`}
               layout="fill"
+              quality={50}
               objectFit="cover"
             />
           </Grid>

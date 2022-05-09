@@ -10,6 +10,7 @@ import Navigation from "../Components/Navigation";
 
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers";
+import Head from "next/head";
 
 type contextType = {
   isLoggedIn: boolean;
@@ -66,6 +67,14 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <Head>
+        <title>Hotel Booking</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="description"
+          content="Author: Artur Kucinski, Placeholder description"
+        />
+      </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <UserContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
