@@ -13,11 +13,19 @@ const SearchPage = () => {
       const guests = query.guests ? Number(query.guests) : 1;
       switch (query.searchParams) {
         case "city":
-          setFilteredHotels(
-            hotels.filter(
-              (hotel) => hotel.city === query.city && hotel.maxGuests >= guests
-            )
-          );
+          console.log(query.guests);
+          if (!query.guests) {
+            setFilteredHotels(
+              hotels.filter((hotel) => hotel.city === query.city)
+            );
+          } else {
+            setFilteredHotels(
+              hotels.filter(
+                (hotel) =>
+                  hotel.city === query.city && hotel.maxGuests >= guests
+              )
+            );
+          }
           break;
         case "country":
           setFilteredHotels(

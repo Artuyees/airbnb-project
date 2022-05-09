@@ -13,7 +13,7 @@ const SearchButton = () => {
       onClick={() => {
         router.push(
           query?.query.city
-            ? `hotels/city?city=${query?.query.city}&guests=${query?.query.adults}`
+            ? `/hotels/city?city=${query?.query.city}&guests=${query?.query.adults}`
             : `hotels`
         );
       }}

@@ -6,8 +6,6 @@ import SearchButton from "./Button";
 import FormInputs from "./Inputs";
 
 const Form = () => {
-  const router = useRouter();
-  const query = useContext(QueryContext);
   return (
     <Paper
       sx={{

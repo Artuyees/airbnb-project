@@ -23,6 +23,7 @@ type Props = {
 const HotelDetails = (props: Props) => {
   const [image, setImage] = React.useState<number>(0);
   const { hotel } = props;
+
   return (
     <Container maxWidth="lg" sx={{ marginTop: 4, marginBottom: 12 }}>
       <Paper
@@ -63,8 +64,8 @@ const HotelDetails = (props: Props) => {
             <Container sx={{ position: "relative" }}>
               {hotel && (
                 <Image
-                  alt={hotel?.images[0]}
-                  src={`/Hotels/Hotel${hotel?.id}/${hotel?.images[image]}`}
+                  alt={hotel.images[0]}
+                  src={`/Hotels/hotel${hotel.id}/${hotel.images[image]}`}
                   layout="fill"
                   objectFit="cover"
                 ></Image>
@@ -91,7 +92,7 @@ const HotelDetails = (props: Props) => {
                   >
                     <Image
                       alt={image}
-                      src={`/Hotels/Hotel${hotel?.id}/${image}`}
+                      src={`/Hotels/hotel${hotel?.id}/${image}`}
                       layout="fill"
                       objectFit="cover"
                       onClick={() => setImage(index)}
