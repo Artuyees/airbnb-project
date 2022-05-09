@@ -10,7 +10,7 @@ type Props = {
 const ListItem = (props: Props) => {
   const { data } = props;
   return (
-    <Link href={`hotel/${data.id}`} passHref>
+    <Link href={`/hotel/${data.id}`} passHref>
       <Paper sx={{ margin: 2 }}>
         <Grid
           container

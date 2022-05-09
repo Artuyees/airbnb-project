@@ -53,10 +53,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     [prefersDarkMode]
   );
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
   const [query, setQuery] = useState<hotelQueryType>({
     city: "Warsaw",
     dateArrival: new Date(),
-    dateDeparture: new Date(),
+    dateDeparture: tomorrow,
     children: 0,
     adults: 2,
   });

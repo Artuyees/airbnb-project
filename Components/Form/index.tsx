@@ -95,6 +95,10 @@ const Form = (props: Props) => {
             id="outlined-basic"
             type="number"
             label="How many adults?"
+            inputProps={{
+              min: 1,
+              max: 10,
+            }}
             onChange={(event) => {
               query?.setQuery({
                 ...query.query,
@@ -112,6 +116,10 @@ const Form = (props: Props) => {
             type="number"
             label="How many children?"
             value={query?.query.children}
+            inputProps={{
+              min: 0,
+              max: 10,
+            }}
             onChange={(event) => {
               query?.setQuery({
                 ...query.query,
@@ -129,7 +137,7 @@ const Form = (props: Props) => {
             onClick={() => {
               router.push(
                 query?.query.city
-                  ? `hotels/city?city=${query?.query.city}`
+                  ? `hotels/city?city=${query?.query.city}&guests=${query?.query.adults}`
                   : `hotels`
               );
             }}
