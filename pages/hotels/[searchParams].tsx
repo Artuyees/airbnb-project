@@ -20,7 +20,6 @@ const SearchPage = () => {
           );
           break;
         case "country":
-          console.log("dzialas");
           setFilteredHotels(
             hotels.filter(
               (hotel) =>

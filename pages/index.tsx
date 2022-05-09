@@ -20,7 +20,7 @@ const Home: NextPage = (props: IndexProps) => {
         alignItems: "center",
       }}
     >
-      <Form data={data} />
+      <Form />
       <Presentation data={data} />
     </Box>
   );
