@@ -57,7 +57,7 @@ const HotelDetails = (props: Props) => {
             marginTop={1}
             item
             container
-            sx={{ minHeight: "40vh", position: "relative" }}
+            sx={{ minHeight: "60vh", position: "relative" }}
             xs={12}
             md={12}
           >
@@ -107,7 +107,7 @@ const HotelDetails = (props: Props) => {
             <Divider orientation="horizontal"></Divider>
           </Grid>
           <Grid item xs={12} md={8}>
-            {hotel && <HotelInfo hotel={hotel} />} xD
+            {hotel && <HotelInfo hotel={hotel} />}
           </Grid>
 
           <Grid
