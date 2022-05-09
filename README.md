@@ -1,9 +1,10 @@
 This is a Airbnb clone made with Next.js and material Ui. features:
 
 - Typescript
+- Material Ui
 - Api routes
-- Form made to find rooms easier
-- Fully responsive design. Mobile support
+- Form made to find easier
+- Mobile support
 - staticProps
 
 ## Getting Started
