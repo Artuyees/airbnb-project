@@ -10,31 +10,47 @@ const SearchPage = () => {
   const { query } = router;
   useEffect(() => {
     const search = async () => {
+      const guests = query.guests ? Number(query.guests) : 1;
       switch (query.searchParams) {
         case "city":
           setFilteredHotels(
-            hotels.filter((hotel) => hotel.city === query.city)
+            hotels.filter(
+              (hotel) => hotel.city === query.city && hotel.maxGuests >= guests
+            )
           );
           break;
         case "country":
           console.log("dzialas");
           setFilteredHotels(
-            hotels.filter((hotel) => hotel.country === query.country)
+            hotels.filter(
+              (hotel) =>
+                hotel.country === query.country && hotel.maxGuests >= guests
+            )
           );
           break;
         case "price":
           setFilteredHotels(
-            hotels.filter((hotel) => hotel.price >= Number(query.price))
+            hotels.filter(
+              (hotel) =>
+                hotel.price >= Number(query.price) && hotel.maxGuests >= guests
+            )
           );
           break;
         case "rating":
           setFilteredHotels(
-            hotels.filter((hotel) => hotel.rating >= Number(query.rating))
+            hotels.filter(
+              (hotel) =>
+                hotel.rating >= Number(query.rating) &&
+                hotel.maxGuests >= guests
+            )
           );
           break;
         case "stars":
           setFilteredHotels(
-            hotels.filter((hotel) => hotel.stars >= Number(query.stars))
+            hotels.filter(
+              (hotel) =>
+                hotel.stars >= Number(query.stars) && hotel.maxGuests >= guests
+            )
           );
           break;
 
