@@ -11,6 +11,7 @@ type Props = {
 const Cards = (props: Props) => {
   const { data, title } = props;
   const cards = data?.slice(0, 4);
+  console.log(cards);
   return (
     <Grid container marginY={1} gap={1}>
       <Grid item xs={12} textAlign="center">
@@ -25,12 +26,13 @@ const Cards = (props: Props) => {
       >
         {cards?.map((item, idx) => {
           const href = `hotels/city?city=${item.city}`;
+          console.log(item.images[idx]);
           return (
             <Grid key={idx} justifyContent="center" item md={3} xs={12}>
               <CardWithData
                 href={href}
                 name={item.city}
-                image={item.image}
+                image={`Photo${idx + 1}.jpg`}
                 index={idx}
               ></CardWithData>
             </Grid>

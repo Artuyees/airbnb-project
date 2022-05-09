@@ -31,8 +31,8 @@ const ListItem = (props: Props) => {
             minHeight={200}
           >
             <Image
-              alt={data.image}
-              src={`/Hotels/${data.image}`}
+              alt={data.images[0]}
+              src={`/Hotels/hotel${data.id}/${data.images[0]}`}
               layout="fill"
               objectFit="cover"
             />

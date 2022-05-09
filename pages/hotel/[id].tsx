@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 
 import React from "react";
-import HotelDetails from "../../Components/Hotel";
+import HotelDetails from "../../Components/HotelDetails";
 import { Hotel, hotels } from "../../data/hotels";
 
 type Props = {

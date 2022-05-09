@@ -17,13 +17,6 @@ const MobileBottomNav = () => {
           setValue(newValue);
         }}
       >
-        {checkLogin?.isLoggedIn && (
-          <BottomNavigationAction
-            label="Register"
-            aria-label="Register"
-            icon={<Favorite />}
-          />
-        )}
         <BottomNavigationAction
           label="Search"
           aria-label="Search"
@@ -32,8 +25,16 @@ const MobileBottomNav = () => {
             router.push("/");
           }}
         />
+        {!checkLogin?.isLoggedIn && (
+          <BottomNavigationAction
+            label="Register"
+            aria-label="Register"
+            icon={<Favorite />}
+          />
+        )}
+
         <BottomNavigationAction
-          label={checkLogin?.isLoggedIn ? "log in" : "Log out"}
+          label={!checkLogin?.isLoggedIn ? "log in" : "Log out"}
           aria-label="log in"
           icon={<Login />}
           onClick={() => {
