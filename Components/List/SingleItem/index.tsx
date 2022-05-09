@@ -32,7 +32,7 @@ const ListItem = (props: Props) => {
           >
             <Image
               alt={data.images[0]}
-              src={`/Hotels/hotel${data.id + 1}/${data.images[0]}`}
+              src={`/Hotels/hotel${data.id}/${data.images[0]}`}
               layout="fill"
               objectFit="cover"
             />
