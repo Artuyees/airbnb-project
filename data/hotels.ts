@@ -9,9 +9,10 @@ export type Hotel = {
   ratingCount: number;
   stars: number;
   price: number;
-  image: string;
+  images: string[];
   maxGuests: number;
-  amenities: { name: string; icon: string }[];
+  properties: { name: string; icon: string }[];
+  serviceCost: number;
 };
 
 export const hotels: Hotel[] = [
@@ -25,9 +26,9 @@ export const hotels: Hotel[] = [
     ratingCount: 42,
     stars: 5,
     price: 100,
-    image: "Photo1.jpg",
+    images: ["photo1.jpg", "photo2.jpg"],
     maxGuests: 6,
-    amenities: [
+    properties: [
       { name: "WiFi", icon: "CellWifi" },
       { name: "Parking", icon: "LocalParking" },
       { name: "Pool", icon: "Pool" },
@@ -40,6 +41,7 @@ export const hotels: Hotel[] = [
     ],
     description:
       "very nice hotel, very good breakfast, Paczkomat blisko, very good staff",
+    serviceCost: 30,
   },
   {
     id: 2,
@@ -51,9 +53,9 @@ export const hotels: Hotel[] = [
     ratingCount: 44,
     stars: 3,
     price: 80,
-    image: "Photo2.jpg",
+    images: ["photo1.jpg", "photo2.jpg"],
     maxGuests: 4,
-    amenities: [
+    properties: [
       { name: "WiFi", icon: "CellWifi" },
       { name: "Parking", icon: "LocalParking" },
       { name: "Pool", icon: "Pool" },
@@ -65,6 +67,7 @@ export const hotels: Hotel[] = [
       { name: "elevator", icon: "Elevator" },
     ],
     description: "Very nice another fake hotel",
+    serviceCost: 30,
   },
   {
     id: 3,
@@ -76,9 +79,9 @@ export const hotels: Hotel[] = [
     ratingCount: 53,
     stars: 4,
     price: 150,
-    image: "Photo3.jpg",
+    images: ["photo1.jpg", "photo2.jpg"],
     maxGuests: 10,
-    amenities: [
+    properties: [
       { name: "WiFi", icon: "CellWifi" },
       { name: "Parking", icon: "LocalParking" },
       { name: "Pool", icon: "Pool" },
@@ -90,6 +93,7 @@ export const hotels: Hotel[] = [
       { name: "elevator", icon: "Elevator" },
     ],
     description: "Very nice fake hotel",
+    serviceCost: 30,
   },
   {
     id: 4,
@@ -101,9 +105,9 @@ export const hotels: Hotel[] = [
     ratingCount: 63,
     stars: 2,
     price: 50,
-    image: "Photo4.jpg",
+    images: ["photo1.jpg", "photo2.jpg"],
     maxGuests: 6,
-    amenities: [
+    properties: [
       { name: "WiFi", icon: "CellWifi" },
       { name: "Parking", icon: "LocalParking" },
       { name: "Pool", icon: "Pool" },
@@ -115,6 +119,7 @@ export const hotels: Hotel[] = [
       { name: "elevator", icon: "Elevator" },
     ],
     description: "Very nice fake hotel",
+    serviceCost: 30,
   },
   {
     id: 5,
@@ -126,9 +131,9 @@ export const hotels: Hotel[] = [
     ratingCount: 77,
     stars: 1,
     price: 200,
-    image: "Photo5.jpg",
+    images: ["photo1.jpg", "photo2.jpg"],
     maxGuests: 5,
-    amenities: [
+    properties: [
       { name: "WiFi", icon: "CellWifi" },
       { name: "Parking", icon: "LocalParking" },
       { name: "Pool", icon: "Pool" },
@@ -140,6 +145,7 @@ export const hotels: Hotel[] = [
       { name: "elevator", icon: "Elevator" },
     ],
     description: "I hate this hotel, its awesome",
+    serviceCost: 30,
   },
   {
     id: 6,
@@ -151,9 +157,9 @@ export const hotels: Hotel[] = [
     ratingCount: 95,
     stars: 5,
     price: 100,
-    image: "Photo6.jpg",
+    images: ["photo1.jpg", "photo2.jpg"],
     maxGuests: 3,
-    amenities: [
+    properties: [
       { name: "WiFi", icon: "CellWifi" },
       { name: "Parking", icon: "LocalParking" },
       { name: "Pool", icon: "Pool" },
@@ -165,6 +171,7 @@ export const hotels: Hotel[] = [
       { name: "elevator", icon: "Elevator" },
     ],
     description: "Very nice fake hotel",
+    serviceCost: 30,
   },
   {
     id: 7,
@@ -176,9 +183,9 @@ export const hotels: Hotel[] = [
     ratingCount: 1,
     stars: 5,
     price: 100,
-    image: "Photo7.jpg",
+    images: ["photo1.jpg", "photo2.jpg"],
     maxGuests: 2,
-    amenities: [
+    properties: [
       { name: "WiFi", icon: "CellWifi" },
       { name: "Parking", icon: "LocalParking" },
       { name: "Pool", icon: "Pool" },
@@ -190,6 +197,7 @@ export const hotels: Hotel[] = [
       { name: "elevator", icon: "Elevator" },
     ],
     description: "Very nice fake hotel",
+    serviceCost: 30,
   },
   {
     id: 8,
@@ -201,9 +209,9 @@ export const hotels: Hotel[] = [
     ratingCount: 24141,
     stars: 5,
     price: 90,
-    image: "Photo8.jpg",
+    images: ["photo1.jpg", "photo2.jpg"],
     maxGuests: 7,
-    amenities: [
+    properties: [
       { name: "WiFi", icon: "CellWifi" },
       { name: "Parking", icon: "LocalParking" },
       { name: "Pool", icon: "Pool" },
@@ -215,6 +223,7 @@ export const hotels: Hotel[] = [
       { name: "elevator", icon: "Elevator" },
     ],
     description: "Very nice fake hotel",
+    serviceCost: 30,
   },
   {
     id: 9,
@@ -226,9 +235,9 @@ export const hotels: Hotel[] = [
     ratingCount: 43,
     stars: 5,
     price: 100,
-    image: "Photo9.jpg",
+    images: ["photo1.jpg", "photo2.jpg"],
     maxGuests: 2,
-    amenities: [
+    properties: [
       { name: "WiFi", icon: "CellWifi" },
       { name: "Parking", icon: "LocalParking" },
       { name: "Pool", icon: "Pool" },
@@ -240,6 +249,7 @@ export const hotels: Hotel[] = [
       { name: "elevator", icon: "Elevator" },
     ],
     description: "Very nice fake hotel",
+    serviceCost: 30,
   },
   {
     id: 10,
@@ -251,9 +261,9 @@ export const hotels: Hotel[] = [
     ratingCount: 5335,
     stars: 5,
     price: 100,
-    image: "Photo10.jpg",
+    images: ["photo1.jpg", "photo2.jpg"],
     maxGuests: 24,
-    amenities: [
+    properties: [
       { name: "WiFi", icon: "CellWifi" },
       { name: "Parking", icon: "LocalParking" },
       { name: "Pool", icon: "Pool" },
@@ -265,5 +275,6 @@ export const hotels: Hotel[] = [
       { name: "elevator", icon: "Elevator" },
     ],
     description: "Very nice fake hotel",
+    serviceCost: 30,
   },
 ];
