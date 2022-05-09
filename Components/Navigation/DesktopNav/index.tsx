@@ -25,7 +25,7 @@ const DesktopNav = () => {
 
         {checkLogin?.isLoggedIn ? (
           <Toolbar sx={{ gap: 2 }}>
-            <Link href="profile" passHref>
+            <Link href="/profile" passHref>
               <Button
                 aria-label="account of current user"
                 sx={{

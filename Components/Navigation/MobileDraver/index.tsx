@@ -42,7 +42,7 @@ const MobileDrawer = () => {
             margin={4}
           >
             <Logo />
-            <Link href="profile" as={`/profile`} passHref>
+            <Link href="/profile" as={`/profile`} passHref>
               <Button
                 sx={{
                   display: "flex",
@@ -58,7 +58,7 @@ const MobileDrawer = () => {
             </Link>
 
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Link href="" passHref>
+              <Link href="/" passHref>
                 <Typography
                   sx={{
                     "&:hover": {
@@ -74,7 +74,7 @@ const MobileDrawer = () => {
             </Box>
 
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Link href="favourites" passHref>
+              <Link href="/favourites" passHref>
                 <Typography
                   sx={{
                     "&:hover": {
@@ -110,7 +110,7 @@ const MobileDrawer = () => {
           >
             <Logo />
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Link href="" passHref>
+              <Link href="/" passHref>
                 <Typography
                   sx={{
                     "&:hover": {
@@ -126,7 +126,7 @@ const MobileDrawer = () => {
             </Box>
 
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Link href="favourites" passHref>
+              <Link href="/favourites" passHref>
                 <Typography
                   sx={{
                     "&:hover": {
